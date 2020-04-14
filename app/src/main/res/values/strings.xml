@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TripSplit</string>
+    <string name="loginButton">Sign In</string>
+    <string name="CreateAcc">Sign Up</string>
+</resources>
