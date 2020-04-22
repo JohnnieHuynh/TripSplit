@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.example.tripsplit.View.Sign_In_Activity;
 import com.example.tripsplit.View.Sign_Up_Activity;
+import com.example.tripsplit.View.Trip_List_Activity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         loginButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentMainToLogin = new Intent(MainActivity.this, Sign_In_Activity.class);
+                Intent intentMainToLogin = new Intent(MainActivity.this, Trip_List_Activity.class);
                 startActivity(intentMainToLogin);
             }
         });
