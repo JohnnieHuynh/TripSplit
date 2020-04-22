@@ -18,7 +18,8 @@ import java.util.List;
 
 public class Trip_List_Activity extends AppCompatActivity {
 
-    //Create RecyclerView
+
+    //Create RecyclerView for Trip List
     private RecyclerView recyclerView;
     private RecyclerView.Adapter recAdapter;
 
