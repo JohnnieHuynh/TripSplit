@@ -2,4 +2,8 @@
     <string name="app_name">TripSplit</string>
     <string name="loginButton">Sign In</string>
     <string name="CreateAcc">Sign Up</string>
+    <string name="Register">Register</string>
+    <string name="EnterUsername">Enter Username</string>
+    <string name="EnterPass">Enter Password</string>
+    <string name="EnterEmail">Enter Email Address</string>
 </resources>
