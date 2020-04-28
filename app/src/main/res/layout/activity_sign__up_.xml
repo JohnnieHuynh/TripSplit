@@ -10,7 +10,6 @@
         android:id="@+id/enterEmail"
         android:layout_width="272dp"
         android:layout_height="62dp"
-        android:layout_marginTop="228dp"
         android:ems="10"
         android:hint="@string/EnterEmail"
         android:inputType="textWebEmailAddress|textEmailAddress"
@@ -19,13 +18,12 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
+        app:layout_constraintVertical_bias="0.306" />
 
     <EditText
         android:id="@+id/enterPassword"
         android:layout_width="272dp"
         android:layout_height="62dp"
-        android:layout_marginTop="228dp"
         android:ems="10"
         android:hint="@string/EnterPass"
         android:inputType="textPersonName"
@@ -34,7 +32,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.469" />
 
     <Button
         android:id="@+id/buttonRegister"
@@ -46,7 +44,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.689" />
+        app:layout_constraintVertical_bias="0.732" />
 
     <EditText
         android:id="@+id/enterUsername"
@@ -61,7 +59,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.513" />
+        app:layout_constraintVertical_bias="0.394" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -75,5 +73,5 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonRegister"
-        app:layout_constraintVertical_bias="0.607" />
+        app:layout_constraintVertical_bias="0.857" />
 </androidx.constraintlayout.widget.ConstraintLayout>
