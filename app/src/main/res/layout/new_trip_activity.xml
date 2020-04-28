@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".View.NewTripActivity"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tripInfo"
+        android:textSize="25dp"
+
+        />
+
+    <!--move height  to logo if a  logo is added-->
+    <EditText
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/edit_text_bacground"
+        android:layout_marginTop="15dp"
+        android:hint="@string/tripName"
+        android:padding="10dp"
+        android:id="@+id/tripName"
+
+
+    />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_bacground"
+        android:layout_marginTop="15dp"
+        android:hint="@string/amountPeople"
+        android:padding="10dp"
+        android:id="@+id/amountPeople"
+        android:inputType="number"
+
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/edit_text_bacground"
+        android:layout_marginTop="15dp"
+        android:hint="@string/tripDescription"
+        android:padding="10dp"
+        android:id="@+id/tripDescription"
+        android:inputType="text"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/newTrip"
+        android:layout_marginTop="30dp"
+        android:id="@+id/newTripButton"
+
+        />
+
+    </LinearLayout>
