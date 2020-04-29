@@ -3,4 +3,11 @@
     <string name="loginButton">Sign In</string>
     <string name="CreateAcc">Sign Up</string>
     <string name="title_activity_sign__in_">Sign_In_Activity</string>
+    <string name="item_1">Item 1</string>
+    <string name="item_2">Item 2</string>
+    <string name="item_3">Item 3</string>
+    <string name="item_4">Item 4</string>
+    <string name="item_5">Item 5</string>
+    <string name="add">Add</string>
+    <string name="go_back">Go Back</string>
 </resources>
