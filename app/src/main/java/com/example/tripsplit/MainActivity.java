@@ -13,11 +13,15 @@ import android.widget.Toast;
 
 import com.example.tripsplit.View.Sign_In_Activity;
 import com.example.tripsplit.View.Sign_Up_Activity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+
+import com.example.tripsplit.View.Trip_List_Activity;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         loginButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 /*
                 the old has been commented out, no need for another activity
                 for logging in
@@ -76,12 +81,15 @@ public class MainActivity extends AppCompatActivity {
                              !!!!!!
                              */
                             //startActivity();//this is where it will go to the screen with the trips n shit
+                            Intent intentMainToLogin = new Intent(MainActivity.this, Trip_List_Activity.class);
+                            startActivity(intentMainToLogin);
                         }else{
                             //an error occured trying to validate user
                             Toast.makeText(MainActivity.this, "Error:" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+
             }
         });
 
