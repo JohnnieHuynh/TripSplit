@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.tripsplit.View.NewTripActivity;
 import com.example.tripsplit.View.Sign_In_Activity;
 import com.example.tripsplit.View.Sign_Up_Activity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         //Connect Buttons
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                             /*/
                              !!!!!!
                              */
-                            //startActivity();//this is where it will go to the screen with the trips n shit
+                            startActivity(new Intent(getApplicationContext(), NewTripActivity.class));
                         }else{
                             //an error occured trying to validate user
                             Toast.makeText(MainActivity.this, "Error:" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

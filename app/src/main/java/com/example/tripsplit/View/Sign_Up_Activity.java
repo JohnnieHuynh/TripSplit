@@ -72,7 +72,7 @@ public class Sign_Up_Activity extends AppCompatActivity {
                                 Toast.makeText(Sign_Up_Activity.this,"Account Created",Toast.LENGTH_SHORT).show();
 
                                 FirebaseAuth.getInstance().signOut();//user will have to sign in when they return to other page
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                startActivity(new Intent(getApplicationContext(), NewTripActivity.class));
                             }else{
                                 Toast.makeText(Sign_Up_Activity.this,"Error: " + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
 
