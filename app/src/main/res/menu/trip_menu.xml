@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/itemBackButt"
+        android:icon="@drawable/ic_arrow_back_black_24dp"
+        android:title="Item Back Button"
+        app:showAsAction="always">
+
+    </item>
+
+    <item
+        android:id="@+id/itemAddTrip"
+        android:icon="@drawable/ic_add"
+        android:title="Item Add Trip"
+        app:showAsAction="always">
+
+    </item>
+
+    <item
+        android:icon="@drawable/ic_menu_black_24dp"
+        android:title="Item Menu"
+        app:showAsAction="always">
+        <menu>
+
+            <item
+                android:title="PLACEHOLDER #1"
+                app:showAsAction="never">
+
+            </item>
+
+            <item
+                android:id="@+id/itemSignOut"
+                android:title="Sign Out"
+                app:showAsAction="never">
+
+            </item>
+
+        </menu>
+
+    </item>
+
+</menu>

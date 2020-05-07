@@ -12,4 +12,14 @@
     <string name="amountPeople">How Manny Participants</string>
     <string name="tripInfo">Enter in the new trip info.</string>
 
+
+    <string name="title_activity_sign__in_">Sign_In_Activity</string>
+    <string name="new_trip_name">New Trip Name</string>
+    <string name="create_button">Create</string>
+    <string name="new_trip_desc">New Description</string>
+    <string name="enter_first" />
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_last_name">Enter Last Name</string>
+    <string name="submit_button">Submit</string>
+
 </resources>
