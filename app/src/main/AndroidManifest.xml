@@ -9,12 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.Trip_List_Activity"
-                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+            android:name=".View.AddTrans_Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         </activity>
-        <activity android:name=".View.Sign_In_Activity" />
-        <activity android:name=".View.Sign_Up_Activity" />
+        <activity
+            android:name=".View.AddPerson_Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".View.TripView_Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".View.Add_Trip_Activity" />
+        <activity
+            android:name=".View.Trip_List_Activity"
+            android:label="Road Trips"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".View.Sign_In_Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".View.Sign_Up_Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

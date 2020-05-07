@@ -1,4 +1,4 @@
-package com.example.tripsplit.Model.ItemModel;
+package com.example.tripsplit.Model;
 
 /**
  * A model for each item in the adapter.
@@ -11,17 +11,17 @@ public class ItemModel {
     //Fields in the item
     private int tripID;
     private String tripName;
-    private String tripDescription; //Optional
+    private String tripDescription;
     private String userTotal;
-    private String user;
+    private String tripCode;
 
     //Constructor
-    public ItemModel (int tripID, String tripName, String tripDescription, String userTotal, String user) {
-        this.tripID = tripID;
+    public ItemModel (String tripName, String tripDescription, String userTotal, String tripCode) {
+        setTripID(this.tripID);
         this.tripName = tripName;
         this.tripDescription = tripDescription;
         this.userTotal = userTotal;
-        this.user = user;
+        this.tripCode = tripCode;
     }
 
     //Setters
@@ -39,8 +39,8 @@ public class ItemModel {
 
     public void setUserTotal(String userTotal) {this.userTotal = userTotal;}
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setTripCode(String tripCode) {
+        this.tripCode = tripCode;
     }
 
     //Getters
@@ -58,7 +58,7 @@ public class ItemModel {
 
     public String getUserTotal() {return userTotal;}
 
-    public String getUser() {
-        return user;
+    public String getTripCode() {
+        return tripCode;
     }
 }
