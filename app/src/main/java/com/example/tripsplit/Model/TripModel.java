@@ -7,17 +7,12 @@ public class TripModel {
     private String tripNum;
 
     public TripModel (String tripName, String tripDesc, String tripNum) {
-        setTripID(this.tripID);
         this.tripName = tripName;
         this.tripDesc = tripDesc;
         this.tripNum = tripNum;
     }
 
     //Setters
-    public void setTripID(int tripID) {
-        this.tripID = tripID;
-    }
-
     public void setTripName(String tripName) {
         this.tripName = tripName;
     }
@@ -31,10 +26,6 @@ public class TripModel {
     }
 
     //Getters
-    public int getTripID() {
-        return tripID;
-    }
-
     public String getTripName() {
         return tripName;
     }

@@ -18,6 +18,11 @@ import com.example.tripsplit.View.TripView_Activity;
 
 import java.util.List;
 
+/**
+ * Variables in this Class have to be changed to fit the new screen as it was changed from
+ * "sender and recipent operations" to "group members"
+ */
+
 public class tripViewAdapter extends RecyclerView.Adapter<tripViewAdapter.MyViewHolder>{
     //Private Var for list of items
     private List<UserOpModel> listItems;

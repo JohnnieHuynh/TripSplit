@@ -63,7 +63,7 @@ public class tripListAdapter extends RecyclerView.Adapter<tripListAdapter.MyView
                 //Make intent for moving screens
                 Intent intent = new Intent(context, TripView_Activity.class);
                 intent.putExtra("TripID_Extra", currentList.getTripCode());
-
+                intent.putExtra("TripNum_Extra", currentList.getUserTotal());
                 //Switches screen
                 context.startActivity(intent);
             }
