@@ -1,9 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="12dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.AddTrans_Activity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".View.AddTrans_Activity"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/newTrans"
+        android:textSize="25dp"
+
+        />
+
+    <!--move height  to logo if a  logo is added-->
+    <EditText
+        android:id="@+id/transName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_text_bacground"
+        android:hint="@string/transName"
+        android:inputType="text"
+        android:padding="10dp"
+
+
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_bacground"
+        android:layout_marginTop="15dp"
+        android:hint="@string/total"
+        android:padding="10dp"
+        android:id="@+id/total"
+        android:inputType="number"
+
+        />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_bacground"
+        android:layout_marginTop="15dp"
+        android:hint="@string/date"
+        android:inputType="date"
+        android:padding="10dp"
+        />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/edit_text_bacground"
+        android:layout_marginTop="15dp"
+        android:hint="@string/description"
+        android:padding="10dp"
+        android:id="@+id/description"
+        android:inputType="text"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/newTrans"
+        android:layout_marginTop="30dp"
+        android:id="@+id/newTrans"
+
+        />
+
+</LinearLayout>

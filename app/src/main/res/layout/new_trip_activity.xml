@@ -33,17 +33,7 @@
 
 
     />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_bacground"
-        android:layout_marginTop="15dp"
-        android:hint="@string/amountPeople"
-        android:padding="10dp"
-        android:id="@+id/amountPeople"
-        android:inputType="number"
 
-        />
 
     <EditText
         android:layout_width="match_parent"

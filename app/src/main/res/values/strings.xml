@@ -22,4 +22,13 @@
     <string name="enter_last_name">Enter Last Name</string>
     <string name="submit_button">Submit</string>
 
+
+    <!-- string for add transaction  -->
+    <string name="date">Date of purchase</string>
+    <string name="total">Total purchase Amount</string>
+    <string name="description">Description</string>
+    <string name="newTrans">New Transaction</string>
+    <string name="transName"> Transaction Name</string>
+    <string name="createTrans">Create New Transaction</string>
+
 </resources>

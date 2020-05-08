@@ -33,7 +33,12 @@
         <activity
             android:name=".View.Sign_Up_Activity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-git pu
+        <activity
+            android:name=".View.NewTripActivity"
+            android:label="Add trip"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
