@@ -11,21 +11,21 @@
     </item>
 
     <item
-        android:id="@+id/itemAddTrip"
-        android:icon="@drawable/ic_add"
-        android:title="Item Add Trip"
-        app:showAsAction="always">
-
-    </item>
-
-    <item
         android:icon="@drawable/ic_menu_black_24dp"
         android:title="Item Menu"
         app:showAsAction="always">
         <menu>
 
             <item
-                android:title="PLACEHOLDER #1"
+                android:id="@+id/itemAddPerson"
+                android:title="Add Person"
+                app:showAsAction="never">
+
+            </item>
+
+            <item
+                android:id="@+id/itemAddTransaction"
+                android:title="Add Transaction"
                 app:showAsAction="never">
 
             </item>
