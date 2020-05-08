@@ -15,22 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "956476816755-rp3jb4ifnjoaded800i0jlmp16h2d8vb.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.tripsplit",
-            "certificate_hash": "27f5ce69cf065aee4c276637117a58e510d5c6c8"
-          }
-        },
-        {
-          "client_id": "956476816755-dbn8nurflv3j01docnnlttmrh7na8jdi.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.tripsplit",
-            "certificate_hash": "003febd934feb720bd048a1ab633511462815cba"
-          }
-        },
-        {
           "client_id": "956476816755-df8i7mr84behjscs9rt3e5iv5459k0qa.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -45,7 +29,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDF3GYUtZlNgtwqc21YHYBZHI3BEguX22Q"
+          "current_key": "AIzaSyDuNAcxPe2L0me74WqflIIkZH-wrQeBqK0"
         }
       ],
       "services": {
