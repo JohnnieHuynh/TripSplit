@@ -2,6 +2,20 @@
     <string name="app_name">TripSplit</string>
     <string name="loginButton">Sign In</string>
     <string name="CreateAcc">Sign Up</string>
+
+    <string name="Register">Register</string>
+    <string name="EnterUsername">Enter Username</string>
+    <string name="EnterPass">Enter Password</string>
+    <string name="EnterEmail">Enter Email Address</string>
+
+    <string name="newTrip">Create New Trip</string>
+    <string name="tripDescription">Trip Description </string>
+    <string name="tripName">Trip name</string>
+    <string name="amountPeople">How Manny Participants</string>
+    <string name="tripInfo">Enter in the new trip info.</string>
+
+
+
     <string name="title_activity_sign__in_">Sign_In_Activity</string>
     <string name="new_trip_name">New Trip Name</string>
     <string name="create_button">Create</string>
@@ -10,4 +24,14 @@
     <string name="enter_first_name">Enter First Name</string>
     <string name="enter_last_name">Enter Last Name</string>
     <string name="submit_button">Submit</string>
+
+
+    <!-- string for add transaction  -->
+    <string name="date">Date of purchase</string>
+    <string name="total">Total purchase Amount</string>
+    <string name="description">Description</string>
+    <string name="newTrans">New Transaction</string>
+    <string name="transName"> Transaction Name</string>
+    <string name="createTrans">Create New Transaction</string>
+
 </resources>

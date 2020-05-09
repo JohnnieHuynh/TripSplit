@@ -1,18 +1,20 @@
 package com.example.tripsplit.Model;
 
 public class TripModel {
-    private int tripID;
+
     private String tripName;
     private String tripDesc;
     private String tripNum;
 
     public TripModel (String tripName, String tripDesc, String tripNum) {
+
         this.tripName = tripName;
         this.tripDesc = tripDesc;
         this.tripNum = tripNum;
     }
 
     //Setters
+
     public void setTripName(String tripName) {
         this.tripName = tripName;
     }
@@ -26,6 +28,7 @@ public class TripModel {
     }
 
     //Getters
+
     public String getTripName() {
         return tripName;
     }

@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.tripsplit.Model.PersonModel;
 import com.example.tripsplit.Model.UserOpModel;
 import com.example.tripsplit.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,6 +44,7 @@ public class AddPerson_Activity extends AppCompatActivity {
     DatabaseReference firebaseINSTANCE;
     DatabaseReference firebaseINSTANCE_EditAmount;
     DatabaseReference FB_UserAmount_Test;
+    FirebaseAuth fAuth;
 
     //Event ID
     String eventID;
@@ -96,8 +98,14 @@ public class AddPerson_Activity extends AppCompatActivity {
 
         //Firebase Reference
         firebaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventGroups").child(eventID);
-        firebaseINSTANCE_EditAmount = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child("testuser1");
-
+        /*
+        changeble
+         */
+        fAuth = FirebaseAuth.getInstance();
+        if (fAuth.getCurrentUser() == null) {
+            Toast.makeText(this, "Against all odds, a user magically dissapeared....ptIII", Toast.LENGTH_SHORT).show();
+        }
+        firebaseINSTANCE_EditAmount=FirebaseDatabase.getInstance().getReference().child("EventPrompts").child(fAuth.getCurrentUser().getUid());
         //Create Button Clicked
         createButt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,7 +127,9 @@ public class AddPerson_Activity extends AppCompatActivity {
                 editedStrAmount = Integer.toString(tempInt);
 
                 //Edit Amount of Users in Event table, in Firebase
-                FB_UserAmount_Test = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child("testuser1").child(eventID).child("tripNum");
+                FB_UserAmount_Test = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child(fAuth.getCurrentUser().getUid()).child(eventID).child("tripNum");
+                //FB_UserAmount_Test = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child("testuser1").child(eventID).child("tripNum");
+
                 FB_UserAmount_Test.setValue(editedStrAmount);
 
                 //Print Message Pop up
