@@ -57,7 +57,7 @@ public class Trip_List_Activity extends AppCompatActivity {
 
             //Back Button
             case R.id.itemBackButt:
-                Intent intentTripToLogin = new Intent(Trip_List_Activity.this, Sign_In_Activity.class);
+                Intent intentTripToLogin = new Intent(Trip_List_Activity.this, MainActivity.class);
                 startActivity(intentTripToLogin);
                 return true;
 
@@ -70,10 +70,10 @@ public class Trip_List_Activity extends AppCompatActivity {
             //PLACEHOLDER MENU ITEM #1
 
             //Sign Out Button
-            case R.id.itemSignOut:
-                Intent intentTripToMainAct = new Intent(Trip_List_Activity.this, MainActivity.class);
-                startActivity(intentTripToMainAct);
-                return true;
+//            case R.id.itemSignOut:
+//                Intent intentTripToMainAct = new Intent(Trip_List_Activity.this, MainActivity.class);
+//                startActivity(intentTripToMainAct);
+//                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
