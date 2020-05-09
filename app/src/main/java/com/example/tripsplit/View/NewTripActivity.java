@@ -24,6 +24,9 @@ import java.util.HashMap;
 
 @SuppressLint("Registered")
 public class NewTripActivity extends AppCompatActivity {
+    //auth db
+    FirebaseAuth fAuth;
+
     private EditText tripName;
 
     private EditText description;
@@ -37,6 +40,8 @@ public class NewTripActivity extends AppCompatActivity {
     protected  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_trip_activity);
+
+        fAuth = FirebaseAuth.getInstance();
 
         Button create = findViewById(R.id.newTripButton);
         tripName = findViewById(R.id.tripName);
@@ -78,7 +83,10 @@ public class NewTripActivity extends AppCompatActivity {
         trip = new TripModel(name, descript, people);
 
         //Datbase Reference to Firebase
-        DatabaseReference databaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child("testuser1");
+        if (fAuth.getCurrentUser() == null) {
+            Toast.makeText(this, "Against all odds, a user magically dissapeared...pt 7 return of the king", Toast.LENGTH_SHORT).show();
+        }
+        DatabaseReference databaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child(fAuth.getCurrentUser().getUid());
 
         //Push to Firebase
         databaseINSTANCE.push().setValue(trip).addOnCompleteListener(new OnCompleteListener<Void>() {
