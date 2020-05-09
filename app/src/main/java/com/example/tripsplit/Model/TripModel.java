@@ -15,7 +15,6 @@ public class TripModel {
 
     //Setters
 
-
     public void setTripName(String tripName) {
         this.tripName = tripName;
     }

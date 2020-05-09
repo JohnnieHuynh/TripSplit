@@ -9,7 +9,6 @@ package com.example.tripsplit.Model;
 public class ItemModel {
 
     //Fields in the item
-    private int tripID;
     private String tripName;
     private String tripDescription;
     private String userTotal;
@@ -17,7 +16,6 @@ public class ItemModel {
 
     //Constructor
     public ItemModel (String tripName, String tripDescription, String userTotal, String tripCode) {
-        setTripID(this.tripID);
         this.tripName = tripName;
         this.tripDescription = tripDescription;
         this.userTotal = userTotal;
@@ -25,9 +23,6 @@ public class ItemModel {
     }
 
     //Setters
-    public void setTripID(int tripID) {
-        this.tripID = tripID;
-    }
 
     public void setTripName(String tripName) {
         this.tripName = tripName;
@@ -44,9 +39,6 @@ public class ItemModel {
     }
 
     //Getters
-    public int getTripID() {
-        return tripID;
-    }
 
     public String getTripName() {
         return tripName;
