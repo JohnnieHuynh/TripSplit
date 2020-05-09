@@ -82,14 +82,15 @@ public class NewTripActivity extends AppCompatActivity {
 
         //Push to Firebase
         databaseINSTANCE.push().setValue(trip).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @SuppressLint("ShowToast")
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(NewTripActivity.this,"New trip created",Toast.LENGTH_SHORT);
+                    Toast.makeText(NewTripActivity.this,"New trip created",Toast.LENGTH_LONG);
                     Intent backToList = new Intent(NewTripActivity.this,Trip_List_Activity.class);
                     startActivity(backToList);
                 }else{
-                    Toast.makeText(NewTripActivity.this,"Error: "+ task.getException().getMessage(),Toast.LENGTH_SHORT);
+                    Toast.makeText(NewTripActivity.this,"Error: "+ task.getException().getMessage(),Toast.LENGTH_LONG);
                 }
             }
         });
