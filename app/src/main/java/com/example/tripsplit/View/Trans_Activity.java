@@ -12,10 +12,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.example.tripsplit.Controller.tripListAdapter;
+import com.example.tripsplit.Controller.TransAdapter;
 import com.example.tripsplit.Controller.tripViewAdapter;
 import com.example.tripsplit.MainActivity;
-import com.example.tripsplit.Model.ItemModel;
+import com.example.tripsplit.Model.TransModel;
 import com.example.tripsplit.Model.UserOpModel;
 import com.example.tripsplit.R;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TripView_Activity extends AppCompatActivity {
+public class Trans_Activity extends AppCompatActivity {
 
     //Import Firebase Instance
     private DatabaseReference firebaseINSTANCE;
@@ -37,45 +37,40 @@ public class TripView_Activity extends AppCompatActivity {
     private RecyclerView.Adapter recAdapter;
 
     //Create List for UserOwer Item Models
-    List<UserOpModel> listItems;
-
-    //Create Appbar
-    Toolbar ViewAppbar;
+    List<TransModel> listItems;
 
     //Event ID
     String eventID;
     String eventNum;
 
+    //Create Toolbar
+    Toolbar TransAppbar;
+
     //Put Items into Appbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.view_menu, menu);
+        inflater.inflate(R.menu.trans_menu, menu);
         return true;
     }
 
-    //Make Menu Items Clickable
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         switch (item.getItemId()){
-
-            //Back Button
-            case R.id.itemBackButt:
-                Intent intentViewToTripList = new Intent(TripView_Activity.this, Trip_List_Activity.class);
-                startActivity(intentViewToTripList);
+            case R.id.itemBackButtTrans:
+                Intent intentTransToTrip = new Intent(Trans_Activity.this, Trip_List_Activity.class);
+                startActivity(intentTransToTrip);
                 return true;
 
-            case R.id.itemAddPerson:
-                Intent intentViewToAddPerson = new Intent(TripView_Activity.this, AddPerson_Activity.class);
-                intentViewToAddPerson.putExtra("TripID_Extra", eventID);
-                intentViewToAddPerson.putExtra("TripNum_Extra", eventNum);
-                startActivity(intentViewToAddPerson);
+            case R.id.itemAddTrans:
+                Intent intentTransToAddTrans = new Intent(Trans_Activity.this, AddTrans_Activity.class);
+                intentTransToAddTrans.putExtra("TripID_Extra", eventID);
+                startActivity(intentTransToAddTrans);
                 return true;
 
-            case R.id.itemSignOut:
-                Intent intentViewToMain = new Intent(TripView_Activity.this, MainActivity.class);
-                startActivity(intentViewToMain);
+            case R.id.itemSignOutTrans:
+                Intent intentTransToMain = new Intent(Trans_Activity.this, MainActivity.class);
+                startActivity(intentTransToMain);
                 return true;
 
             default:
@@ -86,17 +81,15 @@ public class TripView_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trip_view_);
+        setContentView(R.layout.activity_trans_);
 
+        //Connect Toolbar / Appbar
+        TransAppbar = findViewById(R.id.tripAct_toolbar);
+        setSupportActionBar(TransAppbar);
 
         //Get Extras
         Intent intent = getIntent();
         eventID = intent.getStringExtra("TripID_Extra");
-        eventNum = intent.getStringExtra("TripNum_Extra");
-
-        //Connect Appbar
-        ViewAppbar = findViewById(R.id.TripView_Toolbar);
-        setSupportActionBar(ViewAppbar);
 
         //Connect RecyclerView
         recyclerView = (RecyclerView) findViewById(R.id.TV_RecyclerViewID);
@@ -111,17 +104,18 @@ public class TripView_Activity extends AppCompatActivity {
         listItems = new ArrayList<>();
 
         //Insert Firebase Info
-        firebaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventGroups").child(eventID);
+        firebaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child("testuser1").child(eventID);
         firebaseINSTANCE.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    String tempSender = snapshot.child("firstname").getValue().toString();
-                    String tempOperation = snapshot.child("lastname").getValue().toString();
-                    String tempRecipent = "";
+                    String tempDate = snapshot.child("date").getValue().toString();
+                    String tempAmount = snapshot.child("amount").getValue().toString();
+                    String tempDesc = snapshot.child("description").getValue().toString();
+                    String tempPersonLink = snapshot.child("name").getValue().toString();
 
-                    listItems.add(new UserOpModel(tempSender, tempOperation, tempRecipent));
+                    listItems.add(new TransModel(tempDate, tempAmount, tempDesc, tempPersonLink, eventID));
                 }
 
                 //Data has changed
@@ -134,9 +128,8 @@ public class TripView_Activity extends AppCompatActivity {
             }
         });
 
-
         //Specify Adapter
-        recAdapter = new tripViewAdapter(listItems, this);
+        recAdapter = new TransAdapter(listItems, this);
 
         //Set Adapter to RecyclerView
         recyclerView.setAdapter(recAdapter);

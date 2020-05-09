@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         mPassword = findViewById(R.id.enterPassword2);
         fAuth = FirebaseAuth.getInstance();
 
+
         //Send To Login Screen
         loginButt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 the old has been commented out, no need for another activity
                 for logging in
                 */
-                //Intent intentMainToLogin = new Intent(MainActivity.this, Sign_In_Activity.class);
+
                 //startActivity(intentMainToLogin);
 
                 String passwrd = mPassword.getText().toString().trim();

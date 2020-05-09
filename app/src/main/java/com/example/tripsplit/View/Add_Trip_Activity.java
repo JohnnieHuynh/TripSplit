@@ -30,6 +30,7 @@ public class Add_Trip_Activity extends AppCompatActivity {
 
     //Datbase Reference to Firebase
     DatabaseReference databaseINSTANCE;
+    FirebaseAuth fAuth;
 
 
     @Override
@@ -45,8 +46,15 @@ public class Add_Trip_Activity extends AppCompatActivity {
         submitButt = (Button) findViewById(R.id.createButton);
 
         //Refer to Firebase
-        databaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child("testuser1");
-
+        /*
+        changeble ver
+         */
+        //databaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child("testuser1");
+        fAuth = FirebaseAuth.getInstance();
+        if (fAuth.getCurrentUser() == null) {
+            Toast.makeText(this, "Against all odds, a user magically dissapeared....pt2", Toast.LENGTH_SHORT).show();
+        }
+        databaseINSTANCE=FirebaseDatabase.getInstance().getReference().child("EventPrompts").child(fAuth.getCurrentUser().getUid());
         //Create Button Clicked
         submitButt.setOnClickListener(new View.OnClickListener() {
             @Override

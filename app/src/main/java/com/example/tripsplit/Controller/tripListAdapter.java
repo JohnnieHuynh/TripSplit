@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tripsplit.Model.ItemModel;
 import com.example.tripsplit.R;
+import com.example.tripsplit.View.Trans_Activity;
 import com.example.tripsplit.View.TripView_Activity;
 
 import java.util.List;
@@ -61,7 +62,7 @@ public class tripListAdapter extends RecyclerView.Adapter<tripListAdapter.MyView
             @Override
             public void onClick(View v) {
                 //Make intent for moving screens
-                Intent intent = new Intent(context, TripView_Activity.class);
+                Intent intent = new Intent(context, Trans_Activity.class);
                 intent.putExtra("TripID_Extra", currentList.getTripCode());
                 intent.putExtra("TripNum_Extra", currentList.getUserTotal());
                 //Switches screen

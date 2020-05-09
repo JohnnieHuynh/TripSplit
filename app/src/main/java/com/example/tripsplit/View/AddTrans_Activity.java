@@ -15,10 +15,14 @@ import com.example.tripsplit.Model.TransactionModel;
 import com.example.tripsplit.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class AddTrans_Activity extends AppCompatActivity {
+    //auth db
+    FirebaseAuth fAuth;
     private EditText transName;
     private EditText purchaseAmount;
     private EditText date;
@@ -34,6 +38,8 @@ public class AddTrans_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_trans_);
+
+        fAuth = FirebaseAuth.getInstance();
         Button create = findViewById(R.id.newTrans);
 
         if (savedInstanceState == null) {
@@ -72,7 +78,13 @@ public class AddTrans_Activity extends AppCompatActivity {
             // create new transaction
             transaction = new TransactionModel(name,total,dateOf,desc);
 
-            DatabaseReference databaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child("testuser1").child(tripID);
+            /*
+            fix here
+             */
+            if (fAuth.getCurrentUser()==null){
+                Toast.makeText(this, "idk man, the writing in this code has really gone down hill this season", Toast.LENGTH_SHORT).show();
+            }
+            DatabaseReference databaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child(fAuth.getCurrentUser().getUid()).child(tripID);
             databaseINSTANCE.push().setValue(transaction).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @SuppressLint("ShowToast")
                 @Override

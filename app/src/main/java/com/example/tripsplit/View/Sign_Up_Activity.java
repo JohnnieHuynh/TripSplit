@@ -78,6 +78,7 @@ public class Sign_Up_Activity extends AppCompatActivity {
                                 //Toast.makeText(Sign_Up_Activity.this,"ahhhh",Toast.LENGTH_SHORT).show();
 
                                 Toast.makeText(Sign_Up_Activity.this,"Error: " + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                                mProgressbar.setVisibility(View.INVISIBLE);
 
                             }
                         }
