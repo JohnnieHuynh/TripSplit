@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         mPassword = findViewById(R.id.enterPassword2);
         fAuth = FirebaseAuth.getInstance();
 
+
         //Send To Login Screen
         loginButt.setOnClickListener(new View.OnClickListener() {
             @Override
