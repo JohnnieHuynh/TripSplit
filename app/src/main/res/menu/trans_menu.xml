@@ -3,9 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/itemBackButt"
+        android:id="@+id/itemBackButtTrans"
         android:icon="@drawable/ic_arrow_back_black_24dp"
         android:title="Item Back Button"
+        app:showAsAction="always">
+
+    </item>
+
+    <item
+        android:id="@+id/itemAddTrans"
+        android:icon="@drawable/ic_add"
+        android:title="Item Add Trip"
         app:showAsAction="always">
 
     </item>
@@ -17,14 +25,13 @@
         <menu>
 
             <item
-                android:id="@+id/itemAddPerson"
-                android:title="Add Person"
+                android:title="PLACEHOLDER #1"
                 app:showAsAction="never">
 
             </item>
 
             <item
-                android:id="@+id/itemSignOut"
+                android:id="@+id/itemSignOutTrans"
                 android:title="Sign Out"
                 app:showAsAction="never">
 
