@@ -73,18 +73,6 @@ public class TripView_Activity extends AppCompatActivity {
                 startActivity(intentViewToAddPerson);
                 return true;
 
-            case R.id.itemAddTransaction:
-                Intent intentViewToAddTrans = new Intent(TripView_Activity.this, AddTrans_Activity.class);
-                intentViewToAddTrans.putExtra("TripID_Extra", eventID);
-                startActivity(intentViewToAddTrans);
-                return true;
-
-            case R.id.itemAllTransactions:
-                Intent intentViewToAllTrans = new Intent(TripView_Activity.this, Trans_Activity.class);
-                intentViewToAllTrans.putExtra("TripID_Extra", eventID);
-                startActivity(intentViewToAllTrans);
-                return true;
-
             case R.id.itemSignOut:
                 Intent intentViewToMain = new Intent(TripView_Activity.this, MainActivity.class);
                 startActivity(intentViewToMain);

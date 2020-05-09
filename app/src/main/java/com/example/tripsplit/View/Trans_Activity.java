@@ -8,9 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.example.tripsplit.Controller.TransAdapter;
 import com.example.tripsplit.Controller.tripViewAdapter;
+import com.example.tripsplit.MainActivity;
 import com.example.tripsplit.Model.TransModel;
 import com.example.tripsplit.Model.UserOpModel;
 import com.example.tripsplit.R;
@@ -39,10 +43,49 @@ public class Trans_Activity extends AppCompatActivity {
     String eventID;
     String eventNum;
 
+    //Create Toolbar
+    Toolbar TransAppbar;
+
+    //Put Items into Appbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.trans_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.itemBackButtTrans:
+                Intent intentTransToTrip = new Intent(Trans_Activity.this, Trip_List_Activity.class);
+                startActivity(intentTransToTrip);
+                return true;
+
+            case R.id.itemAddTrans:
+                Intent intentTransToAddTrans = new Intent(Trans_Activity.this, AddTrans_Activity.class);
+                intentTransToAddTrans.putExtra("TripID_Extra", eventID);
+                startActivity(intentTransToAddTrans);
+                return true;
+
+            case R.id.itemSignOutTrans:
+                Intent intentTransToMain = new Intent(Trans_Activity.this, MainActivity.class);
+                startActivity(intentTransToMain);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trans_);
+
+        //Connect Toolbar / Appbar
+        TransAppbar = findViewById(R.id.tripAct_toolbar);
+        setSupportActionBar(TransAppbar);
 
         //Get Extras
         Intent intent = getIntent();
@@ -72,7 +115,7 @@ public class Trans_Activity extends AppCompatActivity {
                     String tempDesc = snapshot.child("description").getValue().toString();
                     String tempPersonLink = snapshot.child("name").getValue().toString();
 
-                    listItems.add(new TransModel(tempDate, tempAmount, tempDesc, tempPersonLink));
+                    listItems.add(new TransModel(tempDate, tempAmount, tempDesc, tempPersonLink, eventID));
                 }
 
                 //Data has changed

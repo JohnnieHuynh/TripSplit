@@ -1,6 +1,7 @@
 package com.example.tripsplit.Controller;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tripsplit.Model.TransModel;
 import com.example.tripsplit.Model.UserOpModel;
 import com.example.tripsplit.R;
+import com.example.tripsplit.View.TripView_Activity;
 
 import java.util.List;
 
@@ -48,19 +50,18 @@ public class TransAdapter extends RecyclerView.Adapter<TransAdapter.MyViewHolder
         holder.tvAmount.setText(currentList.getAmount());
         holder.tvDescription.setText(currentList.getDescription());
         holder.tvPersonLink.setText(currentList.getPersonLink());
-
         //Set on click listener for button clicks
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /**
+
                  //Make intent for moving screens
                  Intent intent = new Intent(context, TripView_Activity.class);
-                 intent.putExtra("TripID_Extra", currentList.getTripCode());
+                 intent.putExtra("TripID_Extra", currentList.getEventCode());
 
                  //Switches screen
                  context.startActivity(intent);
-                 */
+
             }
         });
     }
