@@ -31,6 +31,13 @@
             </item>
 
             <item
+                android:id="@+id/itemAllTransactions"
+                android:title="Transaction Log"
+                app:showAsAction="never">
+
+            </item>
+
+            <item
                 android:id="@+id/itemSignOut"
                 android:title="Sign Out"
                 app:showAsAction="never">
