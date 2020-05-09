@@ -100,6 +100,7 @@ public class Trip_List_Activity extends AppCompatActivity {
         listItems = new ArrayList<>();
 
         //Testing Firebase Grab & Insert into List of Items
+
         firebaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child("testuser1");
         firebaseINSTANCE.addValueEventListener(new ValueEventListener() {
             @Override

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.tripsplit.Model.TripModel;
 import com.example.tripsplit.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -29,6 +30,7 @@ public class Add_Trip_Activity extends AppCompatActivity {
 
     //Datbase Reference to Firebase
     DatabaseReference databaseINSTANCE;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
