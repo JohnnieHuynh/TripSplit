@@ -44,6 +44,7 @@ public class TripView_Activity extends AppCompatActivity {
 
     //Event ID
     String eventID;
+    String eventNum;
 
     //Put Items into Appbar
     @Override
@@ -63,20 +64,25 @@ public class TripView_Activity extends AppCompatActivity {
             case R.id.itemBackButt:
                 Intent intentViewToTripList = new Intent(TripView_Activity.this, Trip_List_Activity.class);
                 startActivity(intentViewToTripList);
+                return true;
 
             case R.id.itemAddPerson:
                 Intent intentViewToAddPerson = new Intent(TripView_Activity.this, AddPerson_Activity.class);
                 intentViewToAddPerson.putExtra("TripID_Extra", eventID);
+                intentViewToAddPerson.putExtra("TripNum_Extra", eventNum);
                 startActivity(intentViewToAddPerson);
+                return true;
 
             case R.id.itemAddTransaction:
                 Intent intentViewToAddTrans = new Intent(TripView_Activity.this, AddTrans_Activity.class);
                 intentViewToAddTrans.putExtra("TripID_Extra", eventID);
                 startActivity(intentViewToAddTrans);
+                return true;
 
             case R.id.itemSignOut:
                 Intent intentViewToMain = new Intent(TripView_Activity.this, MainActivity.class);
                 startActivity(intentViewToMain);
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -92,6 +98,7 @@ public class TripView_Activity extends AppCompatActivity {
         //Get Extras
         Intent intent = getIntent();
         eventID = intent.getStringExtra("TripID_Extra");
+        eventNum = intent.getStringExtra("TripNum_Extra");
 
         //Connect Appbar
         ViewAppbar = findViewById(R.id.TripView_Toolbar);
@@ -110,15 +117,15 @@ public class TripView_Activity extends AppCompatActivity {
         listItems = new ArrayList<>();
 
         //Insert Firebase Info
-        firebaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventSums").child(eventID);
+        firebaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventGroups").child(eventID);
         firebaseINSTANCE.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    String tempSender = dataSnapshot.child("viewSender").getValue().toString();
-                    String tempOperation = dataSnapshot.child("viewOperation").getValue().toString();
-                    String tempRecipent = dataSnapshot.child("viewRecipent").getValue().toString();
+                    String tempSender = snapshot.child("firstname").getValue().toString();
+                    String tempOperation = snapshot.child("lastname").getValue().toString();
+                    String tempRecipent = "";
 
                     listItems.add(new UserOpModel(tempSender, tempOperation, tempRecipent));
                 }

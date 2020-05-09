@@ -48,6 +48,7 @@ public class AddPerson_Activity extends AppCompatActivity {
 
     //Event ID
     String eventID;
+    String eventNum;
 
     //Temp Values
     String tempStrNum;
@@ -82,6 +83,7 @@ public class AddPerson_Activity extends AppCompatActivity {
         //Get Extras
         Intent intent = getIntent();
         eventID = intent.getStringExtra("TripID_Extra");
+        eventNum = intent.getStringExtra("TripNum_Extra");
 
         //Connect Appbar
         AddPersonAppbar = (Toolbar) findViewById(R.id.AddPerson_toolbar);
@@ -116,27 +118,14 @@ public class AddPerson_Activity extends AppCompatActivity {
                 //Create New Person Model Object
                 personObj = new PersonModel(tempFN, tempLN);
 
-                //Push to Firebase
-                firebaseINSTANCE.push().setValue(personObj);
-
-                //Get Amount of Users
-                firebaseINSTANCE_EditAmount.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        tempStrNum = dataSnapshot.child("tripNum").getValue().toString();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        System.out.println("Error Cancelled");
-                    }
-                });
+                //Replace Str
+                tempStrNum = eventNum;
 
 
                 //Convert STR to Int and Add +1, then convert back to STR
                 tempInt = Integer.parseInt(tempStrNum);
-                tempInt += 1;
-                editedStrAmount.valueOf(tempInt);
+                tempInt+=1;
+                editedStrAmount = Integer.toString(tempInt);
 
                 //Edit Amount of Users in Event table, in Firebase
                 //FB_UserAmount_Test = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child(fAuth.getCurrentUser().getUid()).child(eventID).child("tripNum");
@@ -149,6 +138,15 @@ public class AddPerson_Activity extends AppCompatActivity {
                 toast = Toast.makeText(getApplicationContext(), "Person Added!" , Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                 toast.show();
+
+                //Push to Firebase
+                firebaseINSTANCE.push().setValue(personObj);
+
+                //Make intent for moving screens
+                Intent intent = new Intent(AddPerson_Activity.this, TripView_Activity.class);
+                intent.putExtra("TripID_Extra", eventID);
+                intent.putExtra("TripNum_Extra", editedStrAmount);
+                startActivity(intent);
             }
         });
     }

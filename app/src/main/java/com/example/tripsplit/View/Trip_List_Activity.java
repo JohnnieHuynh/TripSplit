@@ -63,7 +63,7 @@ public class Trip_List_Activity extends AppCompatActivity {
 
             //Add Button (Currently takes to main page until trip_add act has been created)
             case R.id.itemAddTrip:
-                Intent intentTripToAdd = new Intent(Trip_List_Activity.this, Add_Trip_Activity.class);
+                Intent intentTripToAdd = new Intent(Trip_List_Activity.this, NewTripActivity.class);
                 startActivity(intentTripToAdd);
                 return true;
 

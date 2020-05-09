@@ -11,8 +11,9 @@
 
         <LinearLayout
             android:id="@+id/linearLayoutID2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="15dp">
 
             <TextView
                 android:id="@+id/TV_trans_sender"
