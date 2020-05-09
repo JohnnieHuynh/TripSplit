@@ -99,7 +99,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentMainToSignUp = new Intent(MainActivity.this, Sign_Up_Activity.class);
-                startActivity(intentMainToSignUp);
+                if (fAuth.getCurrentUser()!=null){
+                    //someone is here get em audi
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(intentMainToSignUp);
+                }else{
+                    startActivity(intentMainToSignUp);
+                }
+
+
             }
         });
 
