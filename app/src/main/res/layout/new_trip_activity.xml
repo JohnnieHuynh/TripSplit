@@ -8,54 +8,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".View.AddTrans_Activity"
+    tools:context=".View.NewTripActivity"
     >
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/newTrans"
+        android:text="@string/tripInfo"
         android:textSize="25dp"
 
         />
 
     <!--move height  to logo if a  logo is added-->
     <EditText
-        android:id="@+id/transName"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/edit_text_bacground"
-        android:hint="@string/transName"
-        android:inputType="text"
-        android:padding="10dp"
-
-
-        />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:background="@drawable/edit_text_bacground"
         android:layout_marginTop="15dp"
-        android:hint="@string/total"
+        android:hint="@string/tripName"
         android:padding="10dp"
-        android:id="@+id/total"
-        android:inputType="number"
+        android:id="@+id/tripName"
 
-        />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_bacground"
-        android:layout_marginTop="15dp"
-        android:hint="@string/date"
-        android:inputType="date"
-        android:padding="10dp"
-        />
+    />
 
 
     <EditText
@@ -63,19 +40,19 @@
         android:layout_height="200dp"
         android:background="@drawable/edit_text_bacground"
         android:layout_marginTop="15dp"
-        android:hint="@string/description"
+        android:hint="@string/tripDescription"
         android:padding="10dp"
-        android:id="@+id/description"
+        android:id="@+id/tripDescription"
         android:inputType="text"
         />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/newTrans"
+        android:hint="@string/newTrip"
         android:layout_marginTop="30dp"
-        android:id="@+id/newTrans"
+        android:id="@+id/newTripButton"
 
         />
 
-</LinearLayout>
+    </LinearLayout>
