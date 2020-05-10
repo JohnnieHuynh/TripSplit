@@ -1,5 +1,6 @@
 package com.example.tripsplit.Controller;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ public class TransAdapter extends RecyclerView.Adapter<TransAdapter.MyViewHolder
     //Private Var for list of items
     private List<TransModel> listItems;
     private Context context;
+
 
     //Constructor for item list
     public TransAdapter (List<TransModel> itemList, Context context) {
@@ -56,9 +58,13 @@ public class TransAdapter extends RecyclerView.Adapter<TransAdapter.MyViewHolder
             public void onClick(View v) {
 
                  //Make intent for moving screens
-                 Intent intent = new Intent(context, TripView_Activity.class);
-                 intent.putExtra("TripID_Extra", currentList.getEventCode());
 
+                 Intent intent2 = ((Activity) context).getIntent();
+                 String eventNum = intent2.getStringExtra("TripNum_Extra");
+                ((Activity) context).finish();
+                Intent intent = new Intent(context, TripView_Activity.class);
+                intent.putExtra("TripID_Extra", currentList.getEventCode());
+                intent.putExtra("TripNum_Extra",eventNum);
                  //Switches screen
                  context.startActivity(intent);
 

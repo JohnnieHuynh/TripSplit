@@ -102,10 +102,6 @@ public class Trip_List_Activity extends AppCompatActivity {
         listItems = new ArrayList<>();
 
 
-        //firebaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child("testuser1");//this is the old hardcoded way
-        /*
-        adding passing method below
-         */
         fAuth = FirebaseAuth.getInstance();
         if (fAuth.getCurrentUser() == null) {
             Toast.makeText(this, "Against all odds, a user magically dissapeared", Toast.LENGTH_SHORT).show();

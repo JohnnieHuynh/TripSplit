@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.tripsplit.Controller.TransAdapter;
 import com.example.tripsplit.Controller.tripViewAdapter;
@@ -18,6 +19,7 @@ import com.example.tripsplit.MainActivity;
 import com.example.tripsplit.Model.TransModel;
 import com.example.tripsplit.Model.UserOpModel;
 import com.example.tripsplit.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,7 +33,7 @@ public class Trans_Activity extends AppCompatActivity {
 
     //Import Firebase Instance
     private DatabaseReference firebaseINSTANCE;
-
+    FirebaseAuth fAuth;
     //Create RecyclerView
     private RecyclerView recyclerView;
     private RecyclerView.Adapter recAdapter;
@@ -84,7 +86,7 @@ public class Trans_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_trans_);
 
         //Connect Toolbar / Appbar
-        TransAppbar = findViewById(R.id.tripAct_toolbar);
+        TransAppbar = findViewById(R.id.trans_toolbar);
         setSupportActionBar(TransAppbar);
 
         //Get Extras
@@ -104,7 +106,11 @@ public class Trans_Activity extends AppCompatActivity {
         listItems = new ArrayList<>();
 
         //Insert Firebase Info
-        firebaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child("testuser1").child(eventID);
+        fAuth = FirebaseAuth.getInstance();
+        if (fAuth.getCurrentUser() == null) {
+            Toast.makeText(this, "Against all odds, a user magically dissapeared", Toast.LENGTH_SHORT).show();
+        }
+        firebaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("Transactions").child(eventID);
         firebaseINSTANCE.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -113,7 +119,7 @@ public class Trans_Activity extends AppCompatActivity {
                     String tempDate = snapshot.child("date").getValue().toString();
                     String tempAmount = snapshot.child("amount").getValue().toString();
                     String tempDesc = snapshot.child("description").getValue().toString();
-                    String tempPersonLink = snapshot.child("name").getValue().toString();
+                    String tempPersonLink = snapshot.child("personLink").getValue().toString();
 
                     listItems.add(new TransModel(tempDate, tempAmount, tempDesc, tempPersonLink, eventID));
                 }

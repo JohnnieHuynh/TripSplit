@@ -117,6 +117,12 @@ public class AddPerson_Activity extends AppCompatActivity {
                 //Create New Person Model Object
                 personObj = new PersonModel(tempFN, tempLN);
 
+                //Edit Amount of Users in Event table, in Firebase
+                FB_UserAmount_Test = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child(fAuth.getCurrentUser().getUid()).child(eventID);
+
+                Intent num = getIntent();
+                eventNum = num.getStringExtra("TripNum_Extra");
+
                 //Replace Str
                 tempStrNum = eventNum;
 
@@ -126,9 +132,6 @@ public class AddPerson_Activity extends AppCompatActivity {
                 tempInt+=1;
                 editedStrAmount = Integer.toString(tempInt);
 
-                //Edit Amount of Users in Event table, in Firebase
-                FB_UserAmount_Test = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child(fAuth.getCurrentUser().getUid()).child(eventID).child("tripNum");
-                //FB_UserAmount_Test = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child("testuser1").child(eventID).child("tripNum");
 
                 FB_UserAmount_Test.setValue(editedStrAmount);
 

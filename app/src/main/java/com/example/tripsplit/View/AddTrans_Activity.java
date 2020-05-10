@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.tripsplit.Model.TransModel;
 import com.example.tripsplit.Model.TransactionModel;
 import com.example.tripsplit.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,7 +30,7 @@ public class AddTrans_Activity extends AppCompatActivity {
     private EditText description;
     String tripID;
     // transaction model
-    TransactionModel transaction ;
+    TransModel transaction ;
 
     //get values
 
@@ -76,7 +77,7 @@ public class AddTrans_Activity extends AppCompatActivity {
             Toast.makeText(AddTrans_Activity.this, "Not all the required fields are completed. Please complete all.",Toast.LENGTH_LONG).show();
         }else {
             // create new transaction
-            transaction = new TransactionModel(name,total,dateOf,desc);
+            transaction = new TransModel(name,total,dateOf,desc,tripID);
 
             /*
             fix here
@@ -84,7 +85,7 @@ public class AddTrans_Activity extends AppCompatActivity {
             if (fAuth.getCurrentUser()==null){
                 Toast.makeText(this, "idk man, the writing in this code has really gone down hill this season", Toast.LENGTH_SHORT).show();
             }
-            DatabaseReference databaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child(fAuth.getCurrentUser().getUid()).child(tripID);
+            DatabaseReference databaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("Transactions").child(tripID);
             databaseINSTANCE.push().setValue(transaction).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @SuppressLint("ShowToast")
                 @Override
