@@ -81,7 +81,7 @@ public class AddPerson_Activity extends AppCompatActivity {
         //Get Extras
         Intent intent = getIntent();
         eventID = intent.getStringExtra("TripID_Extra");
-        eventNum = intent.getStringExtra("TripNum_Extra");
+        //eventNum = intent.getStringExtra("TripNum_Extra");
 
         //Connect Appbar
         AddPersonAppbar = (Toolbar) findViewById(R.id.AddPerson_toolbar);
