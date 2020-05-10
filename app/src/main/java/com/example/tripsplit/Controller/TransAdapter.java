@@ -65,6 +65,7 @@ public class TransAdapter extends RecyclerView.Adapter<TransAdapter.MyViewHolder
                 Intent intent = new Intent(context, TripView_Activity.class);
                 intent.putExtra("TripID_Extra", currentList.getEventCode());
                 intent.putExtra("TripNum_Extra",eventNum);
+                intent.putExtra("TransID_Extra", currentList.getTransKey());
                  //Switches screen
                  context.startActivity(intent);
 

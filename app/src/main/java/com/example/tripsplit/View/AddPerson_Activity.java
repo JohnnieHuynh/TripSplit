@@ -49,6 +49,7 @@ public class AddPerson_Activity extends AppCompatActivity {
     //Event ID
     String eventID;
     String eventNum;
+    String transId;
 
     //Temp Values
     String tempStrNum;
@@ -84,6 +85,7 @@ public class AddPerson_Activity extends AppCompatActivity {
         Intent intent = getIntent();
         eventID = intent.getStringExtra("TripID_Extra");
         eventNum = intent.getStringExtra("TripNum_Extra");
+        transId = intent.getStringExtra("TransID_Extra");
 
         //Connect Appbar
         AddPersonAppbar = (Toolbar) findViewById(R.id.AddPerson_toolbar);
@@ -97,7 +99,7 @@ public class AddPerson_Activity extends AppCompatActivity {
         createButt = (Button) findViewById(R.id.button_submit_addP);
 
         //Firebase Reference
-        firebaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("EventGroups").child(eventID);
+        firebaseINSTANCE = FirebaseDatabase.getInstance().getReference().child("TransactionMembers").child(transId);
         /*
         changeble
          */
@@ -118,21 +120,21 @@ public class AddPerson_Activity extends AppCompatActivity {
                 personObj = new PersonModel(tempFN, tempLN);
 
                 //Edit Amount of Users in Event table, in Firebase
-                FB_UserAmount_Test = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child(fAuth.getCurrentUser().getUid()).child(eventID);
+                FB_UserAmount_Test = FirebaseDatabase.getInstance().getReference().child("EventPrompts").child(fAuth.getCurrentUser().getUid()).child(eventID).child("tripNum");
 
+                //Get Extras
                 Intent num = getIntent();
                 eventNum = num.getStringExtra("TripNum_Extra");
 
                 //Replace Str
                 tempStrNum = eventNum;
 
-
                 //Convert STR to Int and Add +1, then convert back to STR
                 tempInt = Integer.parseInt(tempStrNum);
                 tempInt+=1;
                 editedStrAmount = Integer.toString(tempInt);
 
-
+                //Set Number of People on Trip in Firebase DB
                 FB_UserAmount_Test.setValue(editedStrAmount);
 
                 //Print Message Pop up

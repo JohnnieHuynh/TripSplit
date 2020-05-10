@@ -6,6 +6,7 @@ public class TransModel {
     private String description;
     private String personLink;
     private String eventCode;
+    private String transKey;
 
     public TransModel(String date, String amount, String description, String personLink, String eventCode) {
         this.date = date;
@@ -13,9 +14,9 @@ public class TransModel {
         this.description = description;
         this.personLink = personLink;
         this.eventCode = eventCode;
+
     }
 
-    //Getters and Setters
     public String getDate() {
         return date;
     }
@@ -54,5 +55,13 @@ public class TransModel {
 
     public void setEventCode(String eventCode) {
         this.eventCode = eventCode;
+    }
+
+    public String getTransKey() {
+        return transKey;
+    }
+
+    public void setTransKey(String transKey) {
+        this.transKey = transKey;
     }
 }

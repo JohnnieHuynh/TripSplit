@@ -120,6 +120,7 @@ public class Trans_Activity extends AppCompatActivity {
                     String tempAmount = snapshot.child("amount").getValue().toString();
                     String tempDesc = snapshot.child("description").getValue().toString();
                     String tempPersonLink = snapshot.child("personLink").getValue().toString();
+                    String tempkey = snapshot.getKey();
 
                     listItems.add(new TransModel(tempDate, tempAmount, tempDesc, tempPersonLink, eventID));
                 }
